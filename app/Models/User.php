@@ -20,7 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'password', 'phone_number', 'address', 'company_id'
     ];
 
     /**
@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function user()
+    {
+        return $this->belongsToMany(Company::class, 'favourite_products', 'usr_id', 'prd_id')->using(FavouriteProduct::class);
+    }
 }
