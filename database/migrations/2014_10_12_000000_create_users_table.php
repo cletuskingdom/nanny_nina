@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('address');
             $table->foreignId('company_id');
+            $table->string('age');
+            $table->boolean('status');
             $table->rememberToken();
             $table->timestamps();
         });
