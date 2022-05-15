@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function user()
     {
-        return $this->belongsToMany(Company::class, 'favourite_products', 'usr_id', 'prd_id')->using(FavouriteProduct::class);
+        return $this->hasMany(Company::class);
     }
 }
